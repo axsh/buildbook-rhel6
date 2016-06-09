@@ -17,10 +17,11 @@ chroot $1 $SHELL -ex <<'EOS'
   repourl=http://dlc.openvnet.axsh.jp/packages/rhel/openvswitch/${releasever}
 
   case "${releasever}" in
-    6.7)
-      ;;
     *)
-      yum install --disablerepo=updates -y ${repourl}/kmod-openvswitch-${openvswitch_version}-1.el${majorver}.x86_64.rpm
+      curl -L -o openvswitch-kmod.rpm https://www.dropbox.com/s/zvnl9kpdmnbb2a5/kmod-openvswitch-2.3.1-1.el6.x86_64.rpm?dl=0
+      yum -y localinstall openvswitch-kmod.rpm
+      curl -L -o openvswitch.rpm https://www.dropbox.com/s/j8mvg3zcv5mgpz0/openvswitch-2.3.1-1.x86_64.rpm?dl=0
+      yum -y localinstall openvswitch.rpm
       ;;
   esac
 
