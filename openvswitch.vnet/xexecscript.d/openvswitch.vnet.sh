@@ -24,6 +24,4 @@ chroot $1 $SHELL -ex <<'EOS'
       yum -y localinstall openvswitch.rpm
       ;;
   esac
-
-  yum install --disablerepo=updates -y ${repourl}/openvswitch-${openvswitch_version}-1.x86_64.rpm
 EOS
