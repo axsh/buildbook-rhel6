@@ -15,7 +15,7 @@ chroot $1 $SHELL -ex <<'EOS'
 
   openvswitch_version=2.3.1-1
 
-  repourl=http://dlc.openvnet.axsh.jp/packages/rhel/openvswitch/${releasever}
+  repourl=http://dlc.openvnet.axsh.jp/packages/rhel/6/third_party/current/x86_64
 
   case "${releasever}" in
     *)
